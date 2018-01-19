@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?><a href="<?php echo (C("home_url")); ?>/Time/index">时间戳互转</a><br/>
