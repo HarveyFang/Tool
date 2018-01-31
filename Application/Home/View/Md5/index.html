@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>方恒伟Toll-Md5</title>
+	<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+</head>
+<body>
+	<a href="{$Think.config.home_url}/Index/index">首页</a><br/><br/>
+	要加密的内容<input type="text" name="content" id="content" value="123456"><br/><br/>
+	Md5的值<input type="text" name="md5" id="md5" disabled="true" value="{$md5}">
+	<!-- 以下是JS -->
+	<script type="text/javascript">
+		//时间戳转日期
+		$('#content').bind('input propertychange', function() { 
+			var content = $('#content').val();
+			post(content);
+		});
+		function post(content){
+			$.post("{$Think.config.home_url}/Md5/ajax_md5",{content:content},function(result){
+				$("#md5").val(result);
+			});
+		}
+		var content = $('#content').val();
+		post(content);
+	</script>
+	<!-- 以上是JS -->
+</body>
+</html>
